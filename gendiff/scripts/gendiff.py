@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import argparse
 
 # poetry run python -m gendiff.scripts.gendiff -h

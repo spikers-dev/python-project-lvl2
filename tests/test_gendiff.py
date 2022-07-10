@@ -1,4 +1,4 @@
-from venv import __version__
+from gendiff import __version__
 
 
 def test_version():
