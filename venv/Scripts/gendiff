@@ -1,5 +1,0 @@
-#!D:\HEXLET\python-project-lvl2\venv\Scripts\python.exe
-from gendiff.scripts.gendiff import main
-
-if __name__ == '__main__':
-    main()
