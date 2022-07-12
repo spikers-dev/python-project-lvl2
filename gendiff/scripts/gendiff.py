@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 
 import argparse
-from gendiff.libs import generate_diff
+from gendiff.libs.diff_flat import generate_diff
 
 
 # poetry run python -m gendiff.scripts.gendiff -h
@@ -16,7 +16,7 @@ def main():
 
     args = parser.parse_args()
     if args.first_file and args.second_file:
-        print(generate_diff.generate_diff(args.first_file, args.second_file))
+        print(generate_diff(args.first_file, args.second_file))
     else:
         print(args.accumulate(args.first_file))
 
