@@ -12,6 +12,7 @@ python = "^3.9"
 asciinema = "^2.2.0"
 
 [tool.poetry.dev-dependencies]
+flake8 = "^4.0.1"
 
 [tool.poetry.scripts]
 gendiff = "gendiff.scripts.gendiff:main"
