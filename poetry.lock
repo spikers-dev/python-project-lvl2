@@ -154,8 +154,8 @@ python-versions = ">=3.7"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "^3.8.10"
-content-hash = "a6818454dceb435fbff5ffccbd03b358e8f2dc486b0ab03ade9bdb3a1fb40349"
+python-versions = "^3.9.13"
+content-hash = "737fa7a95a3fc98211137080575492a915e0e014d48b6d50f5a57088401c836c"
 
 [metadata.files]
 asciinema = []

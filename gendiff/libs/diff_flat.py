@@ -23,7 +23,7 @@ def generate_diff(file_path1, file_path2):
     file1 = load_file(file_path1)
     file2 = load_file(file_path2)
     diff = []
-    for key in file1 | file2:
+    for key in file1 | file2:  # under 3.9 use {**file1, **file2}
         if key not in file1:
             diff.append(['+', key, file2.get(key)])
             continue

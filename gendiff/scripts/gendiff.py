@@ -5,10 +5,10 @@ from gendiff.libs.diff_flat import generate_diff
 
 
 # poetry run python -m gendiff.scripts.gendiff -h
+# poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
 def main():
     parser = argparse.ArgumentParser(
-        description='Compares two configuration files and shows a difference.'
-                                    )
+        description='Compares two configuration files and shows a difference.')
     parser.add_argument('first_file', type=str)
     parser.add_argument('second_file', type=str)
     parser.add_argument('-f', '--format',
