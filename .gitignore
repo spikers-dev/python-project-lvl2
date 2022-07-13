@@ -3,3 +3,4 @@ __pycache__
 commands
 coverage.xml
 .coverage
+.vscode
