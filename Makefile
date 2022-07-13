@@ -1,21 +1,19 @@
-all: install
-
 install:
 	@poetry install
-
-package-install:
-	@pip install --user --index-url https://test.pypi.org/simple/
-
+ 
 lint:
 	@poetry run flake8 gendiff
-
-test:
-	poetry run coverage run --source=gendiff -m pytest tests
-
-cc-coverage:
-	poetry run coverage xml
-
-build: lint test
+ 
+selfcheck:
+	poetry check
+ 
+check: selfcheck lint
+ 
+build: check
 	@poetry build
-
-.PHONY: all install package-install configure lint test build
+ 
+run_test:
+	poetry run pytest --cov=gendiff tests/ --cov-report xml
+ 
+ 
+.PHONY: install test lint selfcheck check build
