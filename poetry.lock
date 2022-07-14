@@ -1,12 +1,4 @@
 [[package]]
-name = "asciinema"
-version = "2.2.0"
-description = "Terminal session recorder"
-category = "main"
-optional = false
-python-versions = "*"
-
-[[package]]
 name = "atomicwrites"
 version = "1.4.1"
 description = "Atomic file writes."
@@ -174,6 +166,14 @@ pytest = ">=4.6"
 testing = ["fields", "hunter", "process-tests", "six", "pytest-xdist", "virtualenv"]
 
 [[package]]
+name = "pyyaml"
+version = "6.0"
+description = "YAML parser and emitter for Python"
+category = "main"
+optional = false
+python-versions = ">=3.6"
+
+[[package]]
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
@@ -184,10 +184,9 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.9.13"
-content-hash = "a5cd289bbc16278dda01a5a10ee0fdfa8aec105b6b9927e1e7591ec6416039a1"
+content-hash = "8b0f101a42490df2b1b3ea71332ab6bfb3c3366f0683d1dace818827e35e6db6"
 
 [metadata.files]
-asciinema = []
 atomicwrites = []
 attrs = [
     {file = "attrs-21.4.0-py2.py3-none-any.whl", hash = "sha256:2d27e3784d7a565d36ab851fe94887c5eccd6a463168875832a1be79c82828b4"},
@@ -227,4 +226,5 @@ pyparsing = [
 ]
 pytest = []
 pytest-cov = []
+pyyaml = []
 tomli = []

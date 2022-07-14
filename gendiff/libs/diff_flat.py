@@ -1,15 +1,7 @@
-from json import load
+from gendiff.libs.diff_parser import load_file
 
 
-# BEGIN
-# Загружаем файл
-def load_file(file):
-    # В случае проблем с путём к файлу
-    # обработать его здесь
-    return load(open(file))
-
-
-# Модуль приведения строки
+# Модуль приведения блока
 def to_block(data):
     result = '{\n'
     for dif, key, value in sorted(data, key=lambda name: name[1]):
@@ -37,6 +29,13 @@ def generate_diff(file_path1, file_path2):
         diff.append([' ', key, file2.get(key)])
     return to_block(diff)
 # END
+
+
+# file1 = 'tests/fixtures/file1.yaml'
+# file2 = 'tests/fixtures/file2.yaml'
+
+# print(generate_diff(file1, file2))
+
 # {                                   {
 #   "host": "hexlet.io",                "timeout": 20,
 #   "timeout": 50,                      "verbose": true,

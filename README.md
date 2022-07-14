@@ -19,6 +19,13 @@ usage: gendiff [-h] [-f FORMAT] first_file second_file
 ## Comparing flat JSON files
 
 ```bash
-gendiff simple_before.json simple_after.json
+gendiff file1.json file2.json
 ```
 <a href="https://asciinema.org/a/0tTIzalLSCeqshJA5YbGpvPzK" target="_blank"><img src="https://asciinema.org/a/0tTIzalLSCeqshJA5YbGpvPzK.svg" /></a>
+
+## Comparing flat YAML files
+
+```bash
+gendiff file1.yaml file2.yaml
+```
+<a href="https://asciinema.org/a/Bcv7NGDCBeVrpuaE7dbfaInrF" target="_blank"><img src="https://asciinema.org/a/Bcv7NGDCBeVrpuaE7dbfaInrF.svg" /></a>

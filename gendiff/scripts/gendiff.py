@@ -1,11 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import argparse
 from gendiff.libs.diff_flat import generate_diff
 
 
-# poetry run python -m gendiff.scripts.gendiff -h
+# poetry run gendiff -h
 # poetry run gendiff tests/fixtures/file1.json tests/fixtures/file2.json
+# poetry run gendiff tests/fixtures/file1.yaml tests/fixtures/file2.yaml
 def main():
     parser = argparse.ArgumentParser(
         description='Compares two configuration files and shows a difference.')

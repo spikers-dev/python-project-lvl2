@@ -1,1 +1,3 @@
-__version__ = '0.1.0'
+from gendiff.libs.diff_flat import generate_diff
+
+__all__ = ('generate_diff',)
