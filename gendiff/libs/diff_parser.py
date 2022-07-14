@@ -12,4 +12,7 @@ def load_file(file):
     # обработать его здесь
     # pyyaml обрабатывает и json файлы,
     # смысла обрабатывать разные расширения нет!!!
-    return load(open(file), Loader=Loader)
+    try:
+        return load(open(file), Loader=Loader)
+    except Exception as error:
+        return error
