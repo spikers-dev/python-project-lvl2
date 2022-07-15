@@ -22,7 +22,7 @@ def flatkey(keys):
 
 
 # Модуль вычисления отличий
-def generate_diff(file_path1, file_path2, style=to_block):
+def generate_diff(file_path1, file_path2, style=to_block):  # noqa: C901
     file1 = load_file(file_path1)
     file2 = load_file(file_path2)
 
@@ -48,13 +48,13 @@ def generate_diff(file_path1, file_path2, style=to_block):
     return style(walk(file1, file2))
 
 
-# file1 = 'tests/fixtures/file1_complex.json'
-# file2 = 'tests/fixtures/file2_complex.json'
+file1 = 'tests/fixtures/file1_complex.json'
+file2 = 'tests/fixtures/file2_complex.json'
 
 # file3 = 'tests/fixtures/file1.json'
 # file4 = 'tests/fixtures/file2.json'
 
-# print(generate_diff(file1, file2))
+print(generate_diff(file1, file2))
 # print(generate_diff(file3, file4))
 
 # {                                   {
