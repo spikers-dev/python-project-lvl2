@@ -29,3 +29,7 @@ gendiff file1.json file2.json
 gendiff file1.yaml file2.yaml
 ```
 <a href="https://asciinema.org/a/Bcv7NGDCBeVrpuaE7dbfaInrF" target="_blank"><img src="https://asciinema.org/a/Bcv7NGDCBeVrpuaE7dbfaInrF.svg" /></a>
+
+## Comparing complex files
+
+<a href="https://asciinema.org/a/nb39EK2ONcB7xSz9m73G43Nda" target="_blank"><img src="https://asciinema.org/a/nb39EK2ONcB7xSz9m73G43Nda.svg" /></a>

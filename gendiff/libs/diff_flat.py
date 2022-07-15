@@ -1,40 +1,61 @@
 from gendiff.libs.diff_parser import load_file
+from gendiff.libs.stylish import to_block
 
 
-# Модуль приведения блока
-def to_block(data):
-    result = '{\n'
-    for dif, key, value in sorted(data, key=lambda name: name[1]):
-        result += f'  {dif} {key}: {str(value).lower()}\n'
-    result += '}'
-    return result
+# Модуль приведения словаря к структурному списку
+def flatkey(keys):
+    if not isinstance(keys, dict):
+        return keys
+    flat = []
+
+    def walk(keys, flat):
+        for key, value in keys.items():
+            if isinstance(value, dict):
+                child_flat = []
+                walk(value, child_flat)
+                flat.append([' ', key, child_flat])
+                continue
+            flat.append([' ', key, value])
+        return flat
+    walk(keys, flat)
+    return flat
 
 
-# Модуль вычисления отличий плоских файлов
-def generate_diff(file_path1, file_path2):
+# Модуль вычисления отличий
+def generate_diff(file_path1, file_path2, style=to_block):
     file1 = load_file(file_path1)
     file2 = load_file(file_path2)
-    diff = []
-    for key in file1 | file2:  # under 3.9 use {**file1, **file2}
-        if key not in file1:
-            diff.append(['+', key, file2.get(key)])
-            continue
-        elif key not in file2:
-            diff.append(['-', key, file1.get(key)])
-            continue
-        elif file1.get(key) != file2.get(key):
-            diff.append(['-', key, file1.get(key)])
-            diff.append(['+', key, file2.get(key)])
-            continue
-        diff.append([' ', key, file2.get(key)])
-    return to_block(diff)
-# END
+
+    def walk(file1, file2, diff=[]):
+        for key, value in (file1 | file2).items():
+            if key not in file1:
+                diff.append(['+', key, flatkey(value)])
+                continue
+            elif key not in file2:
+                diff.append(['-', key, flatkey(value)])
+                continue
+            elif isinstance(value, dict):
+                child = []
+                walk(file1.get(key), file2.get(key), child)
+                diff.append([' ', key, child])
+                continue
+            elif file1.get(key) != file2.get(key):
+                diff.append(['-', key, flatkey(file1.get(key))])
+                diff.append(['+', key, flatkey(file2.get(key))])
+                continue
+            diff.append([' ', key, file2.get(key)])
+        return diff
+    return style(walk(file1, file2))
 
 
-# file1 = 'tests/fixtures/file1.yaml'
-# file2 = 'tests/fixtures/file2.yaml'
+# file1 = 'tests/fixtures/file1_complex.json'
+# file2 = 'tests/fixtures/file2_complex.json'
+
+# file3 = 'tests/fixtures/file1.json'
+# file4 = 'tests/fixtures/file2.json'
 
 # print(generate_diff(file1, file2))
+# print(generate_diff(file3, file4))
 
 # {                                   {
 #   "host": "hexlet.io",                "timeout": 20,
