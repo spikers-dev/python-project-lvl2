@@ -1,14 +1,13 @@
 from gendiff.libs.diff_parser import load_file
-from gendiff.libs.stylish import to_block
+from gendiff.libs.style_block import to_block
 
 
 # Модуль приведения словаря к структурному списку
 def flatkey(keys):
     if not isinstance(keys, dict):
         return keys
-    flat = []
 
-    def walk(keys, flat):
+    def walk(keys, flat=[]):
         for key, value in keys.items():
             if isinstance(value, dict):
                 child_flat = []
@@ -17,8 +16,7 @@ def flatkey(keys):
                 continue
             flat.append([' ', key, value])
         return flat
-    walk(keys, flat)
-    return flat
+    return walk(keys)
 
 
 # Модуль вычисления отличий
@@ -45,17 +43,17 @@ def generate_diff(file_path1, file_path2, style=to_block):  # noqa: C901
                 continue
             diff.append([' ', key, file2.get(key)])
         return diff
-    return style(walk(file1, file2))
+    return style(walk(file1, file2)).strip()
 
 
-file1 = 'tests/fixtures/file1_complex.json'
-file2 = 'tests/fixtures/file2_complex.json'
+# file1 = 'tests/fixtures/file1_complex.json'
+# file2 = 'tests/fixtures/file2_complex.json'
 
 # file3 = 'tests/fixtures/file1.json'
 # file4 = 'tests/fixtures/file2.json'
 
-print(generate_diff(file1, file2))
-# print(generate_diff(file3, file4))
+# print(generate_diff(file1, file2, to_plain))
+# print(generate_diff(file3, file4, to_plain))
 
 # {                                   {
 #   "host": "hexlet.io",                "timeout": 20,

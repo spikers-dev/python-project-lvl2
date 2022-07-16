@@ -1,8 +1,9 @@
+# Проверка для блочного типа вывода
 def check_value(value):
     if value is None:
-        value = 'null'
+        return 'null'
     if str(value) == 'True' or str(value) == 'False':
-        value = str(value).lower()
+        return str(value).lower()
     return value
 
 
@@ -20,4 +21,4 @@ def to_block(data):
             result += f'{check_value(value)}\n'
         result += f'{indent * round}' + '}\n'
         return result
-    return walk(data).strip()
+    return walk(data)
