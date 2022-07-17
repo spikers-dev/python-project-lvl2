@@ -44,7 +44,7 @@ def generate_diff(file_path1, file_path2, style=''):  # noqa: C901
             elif key not in file2:
                 diff.append(['-', key, flatkey(value)])
                 continue
-            elif isinstance(value, dict):
+            elif isinstance(value, dict) and isinstance(file1.get(key), dict):
                 child = []
                 walk(file1.get(key), file2.get(key), child)
                 diff.append([' ', key, child])
@@ -61,11 +61,10 @@ def generate_diff(file_path1, file_path2, style=''):  # noqa: C901
 # file1 = 'tests/fixtures/file1_complex.json'
 # file2 = 'tests/fixtures/file2_complex.json'
 
-# file3 = 'tests/fixtures/file1.json'
-# file4 = 'tests/fixtures/file2.json'
-file1 = True
-file2 = {'key': 'value'}
-print(generate_diff(file1, file2))
+# file3 = 'tests/fixtures/file1.yml'
+# file4 = 'tests/fixtures/file2.yml'
+
+# print(generate_diff(file3, file4))
 # print(generate_diff(file3, file4, 'json'))
 
 # {                                   {

@@ -3,10 +3,10 @@ from gendiff.libs.diff_parser import load_file
 import tests.expected as expected
 
 
-file1_json = 'tests/fixtures/file1.json'
-file2_json = 'tests/fixtures/file2.json'
-file1_yaml = 'tests/fixtures/file1.yaml'
-file2_yaml = 'tests/fixtures/file2.yaml'
+file1_json = 'tests/fixtures/file1_simple.json'
+file2_json = 'tests/fixtures/file2_simple.json'
+file1_yaml = 'tests/fixtures/file1_simple.yaml'
+file2_yaml = 'tests/fixtures/file2_simple.yaml'
 file_nofound = 'tests/fixtures/file_nofound.yaml'
 file_unformat = 'tests/fixtures/file_unformat.txt'
 file1_compl_json = 'tests/fixtures/file1_complex.json'
