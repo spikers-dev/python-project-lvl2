@@ -33,10 +33,10 @@ def formatter(data, style):
 def generate_diff(file_path1, file_path2, style=''):  # noqa: C901
     file1 = load_file(file_path1)
     file2 = load_file(file_path2)
-    if not isinstance(file1, dict) or not isinstance(file2, dict):
-        return []
 
     def walk(file1, file2, diff=[]):
+        if not isinstance(file1, dict) or not isinstance(file2, dict):
+            return []
         for key, value in (file1 | file2).items():
             if key not in file1:
                 diff.append(['+', key, flatkey(value)])
@@ -63,8 +63,9 @@ def generate_diff(file_path1, file_path2, style=''):  # noqa: C901
 
 # file3 = 'tests/fixtures/file1.json'
 # file4 = 'tests/fixtures/file2.json'
-
-# print(generate_diff(file1, file2, to_plain))
+file1 = True
+file2 = {'key': 'value'}
+print(generate_diff(file1, file2))
 # print(generate_diff(file3, file4, 'json'))
 
 # {                                   {

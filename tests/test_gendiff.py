@@ -66,4 +66,4 @@ file2 = {'key': 'value'}
 
 def test9_json():
     actual = generate_diff(file1, file2)
-    assert actual == []
+    assert actual == '{\n}'
