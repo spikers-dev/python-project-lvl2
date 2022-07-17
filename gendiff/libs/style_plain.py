@@ -6,7 +6,7 @@ def checkp_value(value):
         return str(value).lower()
     if isinstance(value, list):
         return '[complex value]'
-    return f"'{value}'"
+    return f"'{value}'" if isinstance(value, str) else value
 
 
 # Модуль приведения строк

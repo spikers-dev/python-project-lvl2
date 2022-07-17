@@ -64,7 +64,7 @@ def generate_diff(file_path1, file_path2, style=''):  # noqa: C901
 # file3 = 'tests/fixtures/file1.yml'
 # file4 = 'tests/fixtures/file2.yml'
 
-# print(generate_diff(file3, file4))
+# print(generate_diff(file3, file4, 'plain'))
 # print(generate_diff(file3, file4, 'json'))
 
 # {                                   {
