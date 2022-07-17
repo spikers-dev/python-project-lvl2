@@ -1,6 +1,5 @@
 from gendiff.libs.diff_flat import generate_diff
 from gendiff.libs.diff_parser import load_file
-from gendiff.libs.style_plain import to_plain
 import tests.expected as expected
 
 
@@ -47,10 +46,10 @@ def test5_complex_yaml_work():
 
 
 def test6_complex_json_plain():
-    actual = generate_diff(file1_compl_json, file2_compl_json, to_plain)
+    actual = generate_diff(file1_compl_json, file2_compl_json, 'plain')
     assert actual == expected.PLAIN_COMP_STRING
 
 
 def test7_simple_json_plain():
-    actual = generate_diff(file1_json, file2_json, to_plain)
+    actual = generate_diff(file1_json, file2_json, 'plain')
     assert actual == expected.PLAIN_STRING

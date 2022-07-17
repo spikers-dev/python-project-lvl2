@@ -1,5 +1,6 @@
 from gendiff.libs.diff_parser import load_file
-from gendiff.libs.style_block import to_block
+from gendiff.libs.style_block import block
+from gendiff.libs.style_plain import string
 
 
 # Модуль приведения словаря к структурному списку
@@ -19,8 +20,14 @@ def flatkey(keys):
     return walk(keys)
 
 
+def formatter(data, style):
+    if style == 'plain':
+        return string(data).strip()
+    return block(data).strip()
+
+
 # Модуль вычисления отличий
-def generate_diff(file_path1, file_path2, style=to_block):  # noqa: C901
+def generate_diff(file_path1, file_path2, style=''):  # noqa: C901
     file1 = load_file(file_path1)
     file2 = load_file(file_path2)
 
@@ -43,7 +50,7 @@ def generate_diff(file_path1, file_path2, style=to_block):  # noqa: C901
                 continue
             diff.append([' ', key, file2.get(key)])
         return diff
-    return style(walk(file1, file2)).strip()
+    return formatter((walk(file1, file2)), style)
 
 
 # file1 = 'tests/fixtures/file1_complex.json'

@@ -10,11 +10,11 @@ def checkp_value(value):
 
 
 # Модуль приведения строк
-def to_plain(data, plain=[], res=''):  # noqa: C901
+def string(data, plain=[], res=''):  # noqa: C901
     for diff, key, value in sorted(data, key=lambda name: name[1]):
         if diff == ' ' and isinstance(value, list):
             plain.append(key + '.')
-            res += to_plain(value, plain)
+            res += string(value, plain)
             plain.pop()
             continue
         elif diff == '-' and sum(data, []).count(key) == 2:

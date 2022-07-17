@@ -13,23 +13,7 @@ Gendiff is a CLI utility for finding differences between configuration files.
 - Can be used as CLI tool or external library
 
 gendiff --help
-usage: gendiff [-h] [-f FORMAT] first_file second_file
-<a href="https://asciinema.org/a/ReLvLxZwXWADSWvHicrvXNlVv" target="_blank"><img src="https://asciinema.org/a/ReLvLxZwXWADSWvHicrvXNlVv.svg" /></a>
-
-## Comparing flat JSON files
-
 ```bash
-gendiff file1.json file2.json
+gendiff [-h] [-f FORMAT] first_file second_file
 ```
-<a href="https://asciinema.org/a/0tTIzalLSCeqshJA5YbGpvPzK" target="_blank"><img src="https://asciinema.org/a/0tTIzalLSCeqshJA5YbGpvPzK.svg" /></a>
-
-## Comparing flat YAML files
-
-```bash
-gendiff file1.yaml file2.yaml
-```
-<a href="https://asciinema.org/a/Bcv7NGDCBeVrpuaE7dbfaInrF" target="_blank"><img src="https://asciinema.org/a/Bcv7NGDCBeVrpuaE7dbfaInrF.svg" /></a>
-
-## Comparing complex files
-
-<a href="https://asciinema.org/a/nb39EK2ONcB7xSz9m73G43Nda" target="_blank"><img src="https://asciinema.org/a/nb39EK2ONcB7xSz9m73G43Nda.svg" /></a>
+<a href="https://asciinema.org/a/4OoA6aiMMxz3b1AdjX13I9H9o" target="_blank"><img src="https://asciinema.org/a/4OoA6aiMMxz3b1AdjX13I9H9o.svg" /></a>

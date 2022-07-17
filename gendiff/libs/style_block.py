@@ -8,7 +8,7 @@ def check_value(value):
 
 
 # Модуль приведения блока
-def to_block(data):
+def block(data):
     indent = '  '
 
     def walk(data, round=0, result=''):
