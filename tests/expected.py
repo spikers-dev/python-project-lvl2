@@ -21,7 +21,7 @@ COMPLEX_STRING = '''{
         }
         setting6: {
             doge: {
-              - wow: 
+              - wow:   # noqa: W291
               + wow: so much
             }
             key: value
