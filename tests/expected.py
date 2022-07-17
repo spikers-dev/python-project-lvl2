@@ -21,7 +21,7 @@ COMPLEX_STRING = '''{
         }
         setting6: {
             doge: {
-              - wow:   # noqa: W291
+              - wow: 
               + wow: so much
             }
             key: value
@@ -51,7 +51,7 @@ COMPLEX_STRING = '''{
         }
         fee: 100500
     }
-}'''
+}'''  # noqa: W291
 
 
 LOADED_FILE1 = {"host": "hexlet.io",
