@@ -33,6 +33,8 @@ def formatter(data, style):
 def generate_diff(file_path1, file_path2, style=''):  # noqa: C901
     file1 = load_file(file_path1)
     file2 = load_file(file_path2)
+    if not isinstance(file1, dict) or not isinstance(file2, dict):
+        return []
 
     def walk(file1, file2, diff=[]):
         for key, value in (file1 | file2).items():
