@@ -53,3 +53,8 @@ def test6_complex_json_plain():
 def test7_simple_json_plain():
     actual = generate_diff(file1_json, file2_json, 'plain')
     assert actual == expected.PLAIN_STRING
+
+
+def test8_json_formatter():
+    actual = generate_diff(file1_json, file2_json, 'json')
+    assert actual == expected.JSON_STRING

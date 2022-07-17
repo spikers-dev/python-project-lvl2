@@ -1,6 +1,7 @@
 from gendiff.libs.diff_parser import load_file
 from gendiff.libs.style_block import block
 from gendiff.libs.style_plain import string
+from gendiff.libs.style_json import json
 
 
 # Модуль приведения словаря к структурному списку
@@ -23,6 +24,8 @@ def flatkey(keys):
 def formatter(data, style):
     if style == 'plain':
         return string(data).strip()
+    if style == 'json':
+        return json(data)
     return block(data).strip()
 
 
@@ -60,7 +63,7 @@ def generate_diff(file_path1, file_path2, style=''):  # noqa: C901
 # file4 = 'tests/fixtures/file2.json'
 
 # print(generate_diff(file1, file2, to_plain))
-# print(generate_diff(file3, file4, to_plain))
+# print(generate_diff(file3, file4, 'json'))
 
 # {                                   {
 #   "host": "hexlet.io",                "timeout": 20,

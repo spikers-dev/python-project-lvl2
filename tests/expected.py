@@ -82,3 +82,37 @@ PLAIN_STRING = '''Property 'follow' was removed
 Property 'proxy' was removed
 Property 'timeout' was updated. From '50' to '20'
 Property 'verbose' was added with value: true'''
+
+
+JSON_STRING = '''[
+  [
+    " ",
+    "host",
+    "hexlet.io"
+  ],
+  [
+    "-",
+    "timeout",
+    50
+  ],
+  [
+    "+",
+    "timeout",
+    20
+  ],
+  [
+    "-",
+    "proxy",
+    "123.234.53.22"
+  ],
+  [
+    "-",
+    "follow",
+    false
+  ],
+  [
+    "+",
+    "verbose",
+    true
+  ]
+]'''
